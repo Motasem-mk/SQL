@@ -1,5 +1,20 @@
 --command to create database 
 create DATABASE mk;
 create DATABASE testdb;
+
 -- command to drop database == completely deleating it 
 drop Database testdb;
+
+-- command to show all databases 
+show databases ;
+
+-- go inside particular DATABASE
+use mk;
+
+- command to create a atble ADD
+create table if not exists employee
+(
+    id int,
+    name VARCHAR(50) 
+
+);
