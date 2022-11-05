@@ -1,2 +1,5 @@
 --command to create database 
 create DATABASE mk;
+create DATABASE testdb;
+-- command to drop database == completely deleating it 
+drop Database testdb;
