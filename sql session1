@@ -57,5 +57,23 @@ insert into employee_with_constraints values(1,'mk',400,'2020-02-02');
 insert into employee_with_constraints  (id,name,salary) values  (4,'mina',4000);
 
 
+### another way to write constraints syntax 
+
+create table if not exists students
+(
+    id int not null ,
+    name VARCHAR(50),
+    salary DOUBLE,
+    hiring_date DATE default '2022-01-01',
+    constraint uniq_id UNIQUE(id),
+    constraint check_salary check(salary >500)
+);
+
+insert into students (id,name,salary) values (1,'MK',1000);
+select * from students;
+
+## Duplicate entry '1' for key 'students.uniq_id'
+ insert into students values (1,'mina',2000,'2019-03-28');
+
 
 
