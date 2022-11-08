@@ -1,1 +1,22 @@
 
+create database mk;
+use mk;
+create table if not exists employee
+(
+    id int ,
+    name VARCHAR(50),
+    address VARCHAR(50),
+    city VARCHAR(50)
+);
+show tables ;
+
+##-- syntax to add new column .. named DOB (date of birth )
+
+alter table employee add DOB date;
+select * from employee;
+
+insert into employee (id,name,address,city) values  (1,'Motasem','14 rue la martin','Strasbourg');
+select * from employee;
+
+##-- modify existing column in a table 
+
