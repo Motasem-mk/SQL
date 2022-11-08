@@ -10,13 +10,36 @@ create table if not exists employee
 );
 show tables ;
 
-##-- syntax to add new column .. named DOB (date of birth )
-
-alter table employee add DOB date;
-select * from employee;
-
 insert into employee (id,name,address,city) values  (1,'Motasem','14 rue la martin','Strasbourg');
 select * from employee;
 
-##-- modify existing column in a table 
+##-- syntax to add new column .. named DOB (date of birth )
+alter table employee add DOB date;
+
+select * from employee;
+
+ 
+##-- modify existing column in a table  or change data type of name column or increase length of name column 
+ALTER table employee modify column name varchar(100);
+
+##--delet a column fron existing table
+alter table employee drop column weight ;
+
+
+#-- syntax to rename a column 
+alter table employee rename column name to full_name ;
+alter table employee rename column DOB to Date_of_birth;
+
+# add unique integroty constraint on id column 
+alter table employee add constraint unique_id  unique (id) ;
+## test constraint 
+
+insert into employee values (1,'mota','14 rue ','strasbourg','1983-01-14'); --Duplicate entry '1' for key 'employee.unique_id' .
+
+ 
+##-- drop contraint from existing table 
+alter table employee drop constraint unique_id;
+
+--## check  if the constraint is lefted 
+insert into employee values (1,'mk','14 rue','stras','1983-01-14');
 
