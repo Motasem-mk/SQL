@@ -43,3 +43,120 @@ alter table employee drop constraint unique_id;
 --## check  if the constraint is lefted 
 insert into employee values (1,'mk','14 rue','stras','1983-01-14');
 
+
+--- create table with Primary_Key
+
+Create table persons
+(
+    id int, 
+    name varchar(50), 
+    age int,
+    ---Primary Key (id) 
+    constraint pk Primary Key (id) 
+);
+
+insert into persons values(1,'Shashank',29);
+
+--- Try to insert duplicate value for primary key COLUMN
+insert into persons values(1,'Rahul',28);
+
+--- Try to insert null value for primary key COLUMN
+insert into persons values(null,'Rahul',28);
+
+--- To check difference between Primary Key and Unique
+alter table persons add constraint age_unq UNIQUE(age); 
+
+select * from persons;
+
+
+insert into persons values(2,'Rahul',28);
+
+
+insert into persons values(3,'Amit',28);
+
+insert into persons values(3,'Amit',null);
+
+select * from persons;
+
+insert into persons values(4,'Charan',null);
+
+insert into persons values(5,'Deepak',null);
+
+
+--- create tables for Foreign Key demo
+create table customer
+(
+    cust_id int,
+    name VARCHAR(50), 
+    age int,
+    constraint pk Primary Key (cust_id) 
+);
+
+create table orders
+(
+    order_id int,
+    order_num int,
+    customer_id int,
+    constraint pk Primary Key (order_id),
+    constraint fk Foreign Key (customer_id) REFERENCES customer(cust_id)
+);
+
+--- Differen between Drop & Truncate Command
+
+select * from persons;
+truncate table persons;
+
+select * from persons;
+
+drop table persons;
+
+--- Operations with Select Command
+
+select * from employee;
+
+
+drop table employee;
+
+
+ create table if not exists employee 
+ (
+    id int,
+    name VARCHAR(50)
+ );
+ alter table employee add column age int ;
+ alter table employee add column  hiring_date date ;
+ alter table employee add columnsalary double ;
+ alter table employee add column city VARCHAR(50);
+ alter table employee rename column columnsalary to salary ;
+
+ insert into employee values (1,'Motasem',39,'2023-03-10',3000,'Paris');
+insert into employee values (2,'mina',29,'2022-04-05',3000,'Paris');
+insert into employee values (3,'ahmed',24,'2021-11-12',3000,'Paris');
+
+insert into employee values (4,'mai',36,'2020-02-01',3000,'Paris');
+
+insert into employee values (5,'shaimaa',36,'2022-08-17',3000,'Paris');
+
+select * from employee;
+
+-- how to count inside a table 
+
+select count(*) from  employee; 
+
+
+-- using Alias --alias declaration 
+select count(*) as total_count from employee   ;
+
+-- display all columns in the final result 
+select * from employee;
+
+-- to delete a particular row 
+delete from employee where id =1;
+insert into employee values (1,'motasem',39,'2023-02-10',4000,'Paris');
+   
+select * from employee;
+
+--display a specific column in the final result 
+select name , salary from employee;
+
+
