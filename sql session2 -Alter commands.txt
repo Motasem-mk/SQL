@@ -160,3 +160,51 @@ select * from employee;
 select name , salary from employee;
 
 
+-- print uniq hiring date from the employee  table  when the employees joind it 
+select name as employee_names ,salary as employees_salaries from employee;
+
+select hiring_date from employee;
+
+select distinct(hiring_date) as Hiring_Dates from employee;
+
+select * from employee;
+
+-- how many unique age values in the table 
+insert into employee values (6,'Naima',36,'2022-01-01',2000,'strasbourg');
+
+select  distinct (age) from employee; -- will display all the different values ,and one value of the similar ones 
+
+-- how many unique  values of the column age 
+select count (distinct(age) ) as total_unique_age from employee;
+
+--- Increment salary of each employee by 20% and display final result with new salary
+
+select id ,name,age,hiring_date,salary as old_salary,(salary+ salary*0.2) as new_salary ,city from employee;
+
+select salary as old_salary , (salary+salary*0.5) as new_salary from employee;
+
+select * from employee; 
+
+-- syntax for update command 
+-- update a name in  particular row 
+update employee set name = 'Amina' where id =2;
+
+-- update a value (age) in all rows 
+update employee set age =40;
+
+select * from employee;
+
+--update the salary increament by 20% 
+
+update employee set salary = salary+salary*0.2;
+
+select salary from employee;
+select * from employee;
+
+select distinct (age) from employee ;
+select count(distinct(age)) from employee; -- the count is 1
+
+-- how to delete specific record (row)
+
+delete from employee where hiring_date='2022-04-05' ;
+select * from employee;
