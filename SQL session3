@@ -1,0 +1,41 @@
+create table if not exists employee
+( 
+  id int ,
+  name varchar(50),
+  salary double ,
+  country varchar(50),
+  hiring_date date
+);
+select* from employee;
+delete from employee where id=3;
+select * from employee;
+set SQL_SAFE_UPDATES=0;
+truncate table employee;
+select * from employee;
+insert into employee values(1,'Motasem',3000,'Palestine','2023-03-10');
+select* from employee;
+alter table employee add constraint pk primary key(id);
+insert into employee values (2,'Mina',1350,'France','2022-10-29');
+select* from employee;
+update  employee set  name='Amina',salary=1500 where id=2;
+select * from employee;
+insert into employee (id ,name,salary,hiring_date) values  (3,'Ahmed',2000,'2023-02-01');
+select * from employee;
+update employee set country ='Palestine' where id =3;
+select * from employee;
+
+####-- how to use aut increment --###
+
+create table if not exists auto_increment_ex
+(
+    id int auto_increment,
+    name varchar(50),
+    age int ,
+    primary key (id)
+) ;
+
+insert into auto_increment_ex  values(1,'motasem',39);
+insert into auto_increment_ex (name,age) values ('Mina',29);
+insert into auto_increment_ex (name,age) values ('Ahmed',24);
+
+select * from auto_increment_ex;
