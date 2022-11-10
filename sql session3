@@ -40,7 +40,7 @@ insert into auto_increment_ex (name,age) values ('Ahmed',24);
 
 select * from auto_increment_ex;
 
---- Use of limit 
+-- Use of limit 
 select * from auto_increment_example LIMIT 2;
 
 --# sorting data in mysql by using 'Order By' ex: name 
@@ -67,3 +67,80 @@ select * from auto_increment_example order by salary ;
 select * from auto_increment_example order by name asc;
 
 select * from auto_increment_example order by salary desc,name asc;
+
+
+--### write a query to select the employee who is getting the maximum salary .
+
+select * from auto_increment_example order by salary desc  limit 1;
+
+--##write a query to fins the employee who is getting the minum salary ADD
+select * from auto_increment_example  order by salary limit 1;
+update   auto_increment_example set salary =4000 where id =1;
+select * from auto_increment_example order by salary limit 1;
+
+
+alter table  auto_increment_example rename employee;
+alter table employee add column hiring_date date ;
+update employee set hiring_date ='2023-03-10' where name ='Motasem';
+select * from employee;
+update employee set hiring_date ='2021-11-24' where name ='Mona';
+update employee set hiring_date ='2003-12-12' where name ='Mai';
+update employee set hiring_date ='2003-12-12' where id=4;
+update employee set hiring_date ='2003-12-12' where id=5;
+select * from employee;
+
+--### conditional operators = < , > , <= , >= , !=
+--### logical operators (and ,or, not)
+
+--# list all employees who are getting salary more than 2000
+select* from employee where salary > 2000;
+
+# list all employees who are getting salary more than or equal to 2000
+
+select * from employee where salary >= 2000;
+
+--# list all employees who are getting less than 2000
+
+select* from employee where salary < 2000;
+
+--# list all employees who are getting salary less than or equal to 2000
+select * from employee where salary <=2000;
+
+
+-- # filter the record where age of employees is equal to 39
+select * from employee where age = 39;
+
+
+--# filter the record where age of employees is not equal to 39
+--# we can use != or we can use <>
+select * from employee where age != 39;
+select * from employee where age <> 39 ;
+
+-- find those employees who joined the company on '2003-1212-' and their salary is less than 2100
+select * from employee where hiring_date ='2003-12-12' AND salary < 2100;
+
+--# find those employees who joined the company after '2003-12-12' or  their salary is less than 2100
+
+select * from employee where hiring_date > '2003-12-12' and salary >2100;
+select* from employee;
+
+--# how to use Between operation in where clause
+--# get all employees data who joined the company between hiring_date 2015-02-27 to 2021-11-24
+
+select * from employee where    hiring_date  BETWEEN   '2000-01-01' and '2003-12-12' ; 
+
+--# get all employees data who are getting salary in the range of 1000 to 2100
+
+select * from employee where salary between 1000 and 2100 ;
+
+
+--# how to use LIKE operation in where clause
+--# % -> Zero, one or more than one characters
+--# _ -> only one character
+
+--# get all those employees whose name starts with 'S'
+
+
+
+
+
