@@ -39,3 +39,31 @@ insert into auto_increment_ex (name,age) values ('Mina',29);
 insert into auto_increment_ex (name,age) values ('Ahmed',24);
 
 select * from auto_increment_ex;
+
+--- Use of limit 
+select * from auto_increment_example LIMIT 2;
+
+--# sorting data in mysql by using 'Order By' ex: name 
+-- it will be sorted by in ascending by default  
+select * from auto_increment_example order by name ; 
+-- to sort it in descening 
+select* from auto_increment_example order by age desc;
+select* from auto_increment_example order by age ;
+
+
+--# display employee data in desc order of salary and if salaries are same for more than one employees
+--# arrange their data in ascedinding order of name
+
+alter table auto_increment_example add column salary double;
+
+update auto_increment_example set salary = 1500 where name= 'Motasem';
+update auto_increment_example set salary =1500 where id=2;
+update auto_increment_example set salary =2000 where id =3;
+update auto_increment_example set salary =2500 where id =4;
+select* from auto_increment_example;
+update auto_increment_example set salary =2000 where id=5;
+
+select * from auto_increment_example order by salary ;
+select * from auto_increment_example order by name asc;
+
+select * from auto_increment_example order by salary desc,name asc;
