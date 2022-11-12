@@ -139,7 +139,33 @@ select * from employee where salary between 1000 and 2100 ;
 --# _ -> only one character
 
 --# get all those employees whose name starts with 'S'
+select * from employee where name like 'S%';
+select* from employee where name like 'MI%';
 
+--## get all the employee whose their  names ends with 'a'
+select* from employee where name like '%a';
+
+--## get all those employees whoes names startes with M and ends with m 
+select * from employee where name like 'm%a';
+
+--## get all those employees whose name will have exact five characters 
+
+select * from employee where name like '_____';
+
+--## return the employees whoes names at least contains five characters
+
+ select* from employee where name like '%_____%';
+ --# How to use IS NULL or IS NOT NULL in the where clause
+insert into employee values(6,'Mohammed',NULL,'Paris',2300,'2020-02-02',3000);
+insert into employee values(7,'mammy',74,'Gaza',Null,'2020-02-02',3000);
+
+select * from employee where age is null ;
+select * from employee ;
+
+select * from employee where old_salary is null;
+select * from employee where age is NOT NULL;
+
+select count (*) as age_null from employee where age is null;
 
 
 
